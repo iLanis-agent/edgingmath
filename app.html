@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edging Math</title>
+<style>
+  :root { --accent: #6e4a5e; --warn: #a83232; }
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 32px 16px 64px; background: #f8f6f7; color: #282428;
+         font-family: Georgia, 'Times New Roman', serif; }
+  main { max-width: 680px; margin: 0 auto; }
+  h1 { color: var(--accent); font-size: 2.2rem; margin: 0 0 4px; }
+  .tag { font-style: italic; color: var(--accent); margin: 0 0 28px; }
+  .boundary { border-left: 4px solid var(--warn); background: #fdf1f1; padding: 16px 20px;
+              border-radius: 8px; margin: 0 0 28px; }
+  .boundary h2 { color: var(--warn); font-size: 1.1rem; margin: 0 0 8px; }
+  .boundary p { margin: 0; line-height: 1.5; }
+  .card { background: #fff; border: 1px solid #e3dde2; border-left: 4px solid var(--accent);
+          border-radius: 8px; padding: 20px 24px; margin: 0 0 24px; }
+  .card h2 { margin: 0 0 14px; font-size: 1.25rem; }
+  label { display: block; font-size: 0.95rem; margin: 10px 0 4px; }
+  input { width: 100%; max-width: 220px; padding: 8px 10px; font-size: 1rem;
+          border: 1px solid #cdc4cb; border-radius: 6px; background: #f4f1f3; }
+  .out { margin-top: 16px; font-size: 1.05rem; font-weight: bold; color: var(--accent);
+         line-height: 1.5; }
+  .out.err { color: var(--warn); }
+  footer { margin-top: 32px; font-size: 0.85rem; color: #8a8288; line-height: 1.5; }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Edging Math</h1>
+  <p class="tag">Length truth, overlap truth and stake truth - labeled norms, honest arithmetic.</p>
+
+  <div class="boundary">
+    <h2>The boundary</h2>
+    <p>Edging Math keeps section, overlap and stake arithmetic only. Every length, overlap and
+    spacing figure is a labeled norm, not a promise - soil, terrain and corner cuts change real
+    runs. Call 811 before any digging, and follow the manufacturer's instructions over anything
+    this page says.</p>
+  </div>
+
+  <div class="card">
+    <h2>The length truth</h2>
+    <label for="l-feet">Bed to edge (feet)</label>
+    <input id="l-feet" type="number" step="any" value="120">
+    <label for="l-piece">Claimed section length (feet)</label>
+    <input id="l-piece" type="number" step="any" value="4">
+    <p class="out" id="l-out"></p>
+  </div>
+
+  <div class="card">
+    <h2>The overlap truth</h2>
+    <label for="o-feet">Bed to edge (feet)</label>
+    <input id="o-feet" type="number" step="any" value="120">
+    <label for="o-piece">Claimed section length (feet)</label>
+    <input id="o-piece" type="number" step="any" value="4">
+    <label for="o-overlap">Overlap per joint (inches)</label>
+    <input id="o-overlap" type="number" step="any" value="3">
+    <p class="out" id="o-out"></p>
+  </div>
+
+  <div class="card">
+    <h2>The stake truth</h2>
+    <label for="s-feet">Bed to edge (feet)</label>
+    <input id="s-feet" type="number" step="any" value="120">
+    <label for="s-spacing">Stake spacing norm (feet)</label>
+    <input id="s-spacing" type="number" step="any" value="3">
+    <p class="out" id="s-out"></p>
+  </div>
+
+  <footer>
+    Every figure here is hypothetical arithmetic on labeled norms, not a statement about any real
+    edging, stake or yard. <a href="index.html">About Edging Math</a>
+  </footer>
+</main>
+<script src="engine.js"></script>
+<script>
+function num(id) { return parseFloat(document.getElementById(id).value); }
+function render(id, fn) {
+  const el = document.getElementById(id);
+  try {
+    el.textContent = fn();
+    el.classList.remove("err");
+  } catch (e) {
+    el.textContent = e.message;
+    el.classList.add("err");
+  }
+}
+function update() {
+  render("l-out", () => lengthTruth(num("l-feet"), num("l-piece")));
+  render("o-out", () => overlapTruth(num("o-feet"), num("o-piece"), num("o-overlap")));
+  render("s-out", () => stakeTruth(num("s-feet"), num("s-spacing")));
+}
+document.querySelectorAll("input").forEach(i => i.addEventListener("input", update));
+update();
+</script>
+</body>
+</html>
