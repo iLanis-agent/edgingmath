@@ -1,0 +1,203 @@
+[
+ {
+  "fn": "lengthTruth",
+  "args": [
+   120,
+   4
+  ],
+  "out": "120 feet of bed against the 4-foot section claim is 30 sections - a weekend run honestly."
+ },
+ {
+  "fn": "lengthTruth",
+  "args": [
+   30,
+   4
+  ],
+  "out": "30 feet of bed against the 4-foot section claim is 8 sections - a short run honestly."
+ },
+ {
+  "fn": "lengthTruth",
+  "args": [
+   200,
+   4
+  ],
+  "out": "200 feet of bed against the 4-foot section claim is 50 sections - a whole-yard run honestly."
+ },
+ {
+  "fn": "lengthTruth",
+  "args": [
+   500,
+   4
+  ],
+  "out": "500 feet of bed against the 4-foot section claim is 125 sections - an estate run honestly."
+ },
+ {
+  "fn": "lengthTruth",
+  "args": [
+   1,
+   4
+  ],
+  "out": "1 foot of bed against the 4-foot section claim is 1 section - a short run honestly."
+ },
+ {
+  "fn": "lengthTruth",
+  "args": [
+   80,
+   4
+  ],
+  "out": "80 feet of bed against the 4-foot section claim is 20 sections - a weekend run honestly."
+ },
+ {
+  "fn": "lengthTruth",
+  "args": [
+   0,
+   4
+  ],
+  "err": "the run must be above zero"
+ },
+ {
+  "fn": "lengthTruth",
+  "args": [
+   120,
+   0
+  ],
+  "err": "the section length must be above zero"
+ },
+ {
+  "fn": "overlapTruth",
+  "args": [
+   120,
+   4,
+   3
+  ],
+  "out": "120 feet against the 4-foot claim with a 3-inch overlap really covers 3.8 feet a section: 32 sections - 2 hidden sections, a small secret honestly."
+ },
+ {
+  "fn": "overlapTruth",
+  "args": [
+   120,
+   4,
+   0
+  ],
+  "out": "120 feet against the 4-foot claim with a 0-inch overlap really covers 4.0 feet a section: 30 sections - no hidden sections honestly."
+ },
+ {
+  "fn": "overlapTruth",
+  "args": [
+   40,
+   4,
+   6
+  ],
+  "out": "40 feet against the 4-foot claim with a 6-inch overlap really covers 3.5 feet a section: 12 sections - 2 hidden sections, a small secret honestly."
+ },
+ {
+  "fn": "overlapTruth",
+  "args": [
+   300,
+   4,
+   6
+  ],
+  "out": "300 feet against the 4-foot claim with a 6-inch overlap really covers 3.5 feet a section: 86 sections - 11 hidden sections, a pallet of secrets honestly."
+ },
+ {
+  "fn": "overlapTruth",
+  "args": [
+   1000,
+   4,
+   6
+  ],
+  "out": "1000 feet against the 4-foot claim with a 6-inch overlap really covers 3.5 feet a section: 286 sections - 36 hidden sections, a pallet of secrets honestly."
+ },
+ {
+  "fn": "overlapTruth",
+  "args": [
+   50,
+   4,
+   2
+  ],
+  "out": "50 feet against the 4-foot claim with a 2-inch overlap really covers 3.8 feet a section: 14 sections - 1 hidden section, a small secret honestly."
+ },
+ {
+  "fn": "overlapTruth",
+  "args": [
+   120,
+   4,
+   48
+  ],
+  "err": "the overlap must be less than the section length"
+ },
+ {
+  "fn": "overlapTruth",
+  "args": [
+   120,
+   4,
+   -1
+  ],
+  "err": "the overlap must be zero or more"
+ },
+ {
+  "fn": "overlapTruth",
+  "args": [
+   0,
+   4,
+   3
+  ],
+  "err": "the run must be above zero"
+ },
+ {
+  "fn": "stakeTruth",
+  "args": [
+   120,
+   3
+  ],
+  "out": "120 feet at a stake every 3 feet is 40 stakes - a box of stakes honestly."
+ },
+ {
+  "fn": "stakeTruth",
+  "args": [
+   20,
+   3
+  ],
+  "out": "20 feet at a stake every 3 feet is 7 stakes - a pocketful honestly."
+ },
+ {
+  "fn": "stakeTruth",
+  "args": [
+   60,
+   3
+  ],
+  "out": "60 feet at a stake every 3 feet is 20 stakes - a small box honestly."
+ },
+ {
+  "fn": "stakeTruth",
+  "args": [
+   300,
+   3
+  ],
+  "out": "300 feet at a stake every 3 feet is 100 stakes - several boxes honestly."
+ },
+ {
+  "fn": "stakeTruth",
+  "args": [
+   1,
+   3
+  ],
+  "out": "1 foot at a stake every 3 feet is 1 stake - a pocketful honestly."
+ },
+ {
+  "fn": "stakeTruth",
+  "args": [
+   0,
+   3
+  ],
+  "err": "the run must be above zero"
+ },
+ {
+  "fn": "stakeTruth",
+  "args": [
+   120,
+   0
+  ],
+  "err": "the stake spacing must be above zero"
+ }
+]
